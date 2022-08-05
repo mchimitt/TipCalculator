@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/bill_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/bill_edit"
+        android:layout_alignBottom="@id/bill_edit"
+        android:gravity="center_vertical"
+        android:text="Bill Amount        $"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/bill_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/bill_amount"
+        android:hint="Enter bill amount"
+        android:inputType="numberDecimal"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:id="@+id/tip_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bill_edit"
+        android:layout_alignBottom="@id/tip_edit"
+        android:gravity="center_vertical"
+        android:paddingRight="20dp"
+        android:text="Tip Percentage"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/tip_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bill_edit"
+        android:layout_toRightOf="@id/tip_amount"
+        android:hint="Enter tip"
+        android:inputType="numberDecimal"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bill_edit"
+        android:layout_alignBottom="@id/tip_edit"
+        android:layout_toRightOf="@id/tip_edit"
+        android:gravity="center_vertical"
+        android:text="%"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/calc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tip_edit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:background="#2196F3"
+        android:onClick="CalculateTip"
+        android:text="\nCalculate\n"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/final_tip_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/calc"
+        android:layout_marginTop="32dp"
+        android:paddingRight="5dp"
+        android:text="Tip:  $"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tip_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/calc"
+        android:layout_marginTop="32dp"
+        android:text="0.00"
+        android:layout_toRightOf="@id/final_tip_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:id="@+id/final_bill_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tip_money"
+        android:layout_marginTop="32dp"
+        android:paddingRight="5dp"
+        android:text="Total:  $"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/final_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tip_money"
+        android:layout_marginTop="32dp"
+        android:layout_toRightOf="@id/final_bill_title"
+        android:text="0.00"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:id="@+id/guest_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/final_bill"
+        android:gravity="center_vertical"
+        android:text="Number of guests: "
+        android:layout_alignTop="@id/guest_number_edit"
+        android:layout_alignBottom="@id/guest_number_edit"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/guest_number_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/final_bill"
+        android:layout_toRightOf="@id/guest_number"
+        android:ems="10"
+        android:layout_marginTop="32dp"
+        android:inputType="number"
+        android:text="1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <Button
+        android:id="@+id/split"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/guest_number_edit"
+        android:background="#2196F3"
+        android:text="\nSPLIT\n"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:onClick="SplitTip"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/split_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/split"
+        android:layout_marginTop="16dp"
+        android:text="Split Tip:  $ "
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/split_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/split_tip"
+        android:layout_marginTop="16dp"
+        android:text="Split Total:  $ "
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/split_tip_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/split"
+        android:layout_alignTop="@id/split_tip"
+        android:layout_alignBottom="@id/split_tip"
+        android:layout_toRightOf="@id/split_tip"
+        android:text="0.00 per person"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:id="@+id/split_bill_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/split_bill"
+        android:layout_alignBottom="@id/split_bill"
+        android:layout_toRightOf="@id/split_bill"
+        android:text="0.00 per person"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+
+
+
+</android.widget.RelativeLayout>
